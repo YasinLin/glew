@@ -8,12 +8,15 @@
 NAME      := glew32
 HOST      := x86_64-w64-mingw32
 GLEW_DEST ?= /usr/local/$(HOST)
+GLEW_LIB ?= /usr/$(HOST)/lib
 CC    := $(HOST)-gcc
 LD    := $(HOST)-ld
 LN    :=
 STRIP :=
-LDFLAGS.GL = -L/usr/$(HOST)/lib -lopengl32 -lgdi32 -luser32 -lkernel32
+LDFLAGS.GL = -lopengl32 -lgdi32 -luser32 -lkernel32
+LDFLAGS.EXTRA = -L$(GLEW_LIB)
 CFLAGS.EXTRA  += -fno-builtin -fno-stack-protector -Wno-cast-function-type
+LDFLAGS.EXTRA += -nostdlib
 WARN = -Wall -W
 POPT = -O2
 BIN.SUFFIX = .exe
