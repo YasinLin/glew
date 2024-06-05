@@ -6,7 +6,7 @@
 # $ make SYSTEM=linux-mingw64
 
 NAME      := glew32
-HOST      := x86_64-w64-mingw32
+HOST      ?= x86_64-w64-mingw32
 GLEW_DEST ?= /usr/local/$(HOST)
 GLEW_LIB ?= /usr/$(HOST)/lib
 CC    := $(HOST)-gcc
